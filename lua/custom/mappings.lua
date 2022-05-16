@@ -8,6 +8,7 @@ return {
   },
   packer = {
      n = {
+        ["<leader>p"] = {"","Packer"},
         ["<leader>pc"] = { "<cmd>PackerCompile<cr>", "Compile" },
         ["<leader>pi"] = { "<cmd>PackerInstall<cr>", "Install" },
         ["<leader>pr"] = { "<cmd>lua require('lvim.utils').reload_lv_config()<cr>", "Reload" },
@@ -18,6 +19,7 @@ return {
   },
   telescope = {
      n = {
+        ["<leader>s"] = {"","Telescope"},
         -- find
         ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "  find files" },
         ["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
@@ -28,6 +30,7 @@ return {
         ["<leader>sk"] = { "<cmd> Telescope keys <CR>", "   show keys" },
   
         -- git
+        ["<leader>sg"] = { "", "   git" },
         ["<leader>sgc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
         ["<leader>sgt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
   
@@ -42,6 +45,7 @@ return {
    -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
      n = {
+        ["<leader>l"] = {"","LSP"},
         ["gD"] = {
            function()
               vim.lsp.buf.declaration()
