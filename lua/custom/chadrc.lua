@@ -15,7 +15,7 @@ M.options = {
 
 M.ui = {
    theme_toggle = { "one_light","onedark"},
-   theme = "onedark",
+   theme = "wombat",
 }
 
 -- Install plugins
