@@ -53,21 +53,20 @@ return {
   },
 
   -- Debugger management
-  -- {
-  --     "Pocco81/DAPInstall.nvim",
-  --     -- event = "BufWinEnter",
-  --     -- event = "BufRead",
-  --     config = function()
-  --         require("custom.plugins.dap-install").setup()
-  --     end,
-  -- },
-  -- {
-  --     "rcarriga/nvim-dap-ui",
-  --     config = function()
-  --         require("dapui").setup()
-  --     end,
-  --     ft = { "go" },
-  --     requires = { "mfussenegger/nvim-dap" },
-  -- },
+  ["Pocco81/DAPInstall.nvim"] = {
+      commit = "24923c3819a450a772bb8f675926d530e829665f",
+      -- event = "BufWinEnter",
+      -- event = "BufRead",
+      config = function()
+          require("custom.plugins.dap-install").setup()
+      end,
+  },
+  ["rcarriga/nvim-dap-ui"]={
+      config = function()
+          require("dapui").setup()
+      end,
+      ft = { "go" },
+      requires = { "mfussenegger/nvim-dap" },
+  },
   ["mbbill/undotree"]={},
 }
