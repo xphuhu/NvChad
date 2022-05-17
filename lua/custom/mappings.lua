@@ -1,4 +1,10 @@
 return {
+  whichkey = {
+     n = {
+        ["<leader>wK"] = {},
+        ["<leader>wk"] = {},
+     },
+  },
   general = {
     n = {
       -- save
