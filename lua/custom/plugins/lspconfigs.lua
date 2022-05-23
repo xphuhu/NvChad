@@ -16,6 +16,7 @@ M.setup_lsp = function(attach, capabilities)
         augroup GO_LSP
           autocmd!
           autocmd BufWritePre <buffer> lua Goimports(1000)
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil,1000)
         augroup END
       ]])
    end
