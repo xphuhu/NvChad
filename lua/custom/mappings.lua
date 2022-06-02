@@ -106,7 +106,7 @@ return {
         },
         ["<leader>lr"] = {
            function()
-              vim.lsp.buf.rename()
+              vim.lsp.buf.rename.float()
            end,
            "   lsp rename",
         },

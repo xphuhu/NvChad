@@ -131,7 +131,7 @@ M.comment = {
 --          "   lsp implementation",
 --       },
 -- 
---       ["<C-k>"] = {
+--       ["<leader>ls"] = {
 --          function()
 --             vim.lsp.buf.signature_help()
 --          end,
@@ -147,7 +147,7 @@ M.comment = {
 -- 
 --       ["<leader>ra"] = {
 --          function()
---             vim.lsp.buf.rename()
+--             vim.lsp.buf.rename.float()
 --          end,
 --          "   lsp rename",
 --       },
