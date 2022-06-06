@@ -37,10 +37,10 @@ return {
         ["<leader>sm"] = { "<cmd> Telescope marks <CR>", "show marks" },
         ["<leader>sc"] = { "<cmd> Telescope commands <CR>", "show commands" },
         -- git
-        ["<leader>sg"] = { "", "gits" },
+        ["<leader>sg"] = { "", "Gits" },
         ["<leader>sgc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
         ["<leader>sgt"] = { "<cmd> Telescope git_status <CR>", "git status" },
-        ["<leader>st"] = { "", "themes" },
+        ["<leader>st"] = { "", "Themes" },
         ["<leader>stm"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
         -- theme ssitcher
         ["<leader>sth"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
@@ -140,20 +140,20 @@ return {
            end,
            "   list workspace folders",
         },
-        ["<leader>lp"] = { "", "Peek" },
-        ["<leader>lpd"] = {
+        ["<leader>lt"] = { "", "Telescope" },
+        ["<leader>ltd"] = {
           "<cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>",
           "Definition",
         },
-        ["<leader>lpt"] = {
+        ["<leader>ltt"] = {
           "<cmd>lua require'telescope.builtin'.lsp_type_definitions{}<cr>",
           "Type Definition",
         },
-        ["<leader>lpi"] = {
+        ["<leader>lti"] = {
           "<cmd>lua require'telescope.builtin'.lsp_implementations{}<cr>",
           "Implementation",
         },
-        ["<leader>lpr"] = {
+        ["<leader>ltr"] = {
           "<cmd>lua require'telescope.builtin'.lsp_references{}<cr>",
           "References",
         },
