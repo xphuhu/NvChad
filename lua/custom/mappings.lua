@@ -94,15 +94,13 @@ return {
            end,
            "   lsp implementation",
         },
-        ["<leader>ls"] = {
-           function()
-              vim.lsp.buf.signature_help()
-           end,
-           "   lsp signature_help",
-        },
         ["<leader>ld"] = {
           "<cmd>lua require'telescope.builtin'.diagnostics{bufnr=0}<cr>",
           "Document Diagnostics",
+        },
+        ["<leader>ls"] = {
+          "<cmd> Telescope lsp_document_symbols<cr>",
+          "Document Symbols",
         },
         ["<leader>lr"] = {
            function()
@@ -122,6 +120,8 @@ return {
            "   lsp formatting",
         },
         ["<leader>lw"] = {"","workspaces"},
+        ["<leader>lws"] = {"<cmd> Telescope lsp_workspace_symbols <CR>","Workspace Symbols",
+        },
         ["<leader>lwa"] = {
            function()
               vim.lsp.buf.add_workspace_folder()
