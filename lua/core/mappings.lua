@@ -147,7 +147,7 @@ M.comment = {
 -- 
 --       ["<leader>ra"] = {
 --          function()
---             vim.lsp.buf.rename.float()
+--             require("ui.renamer").open()
 --          end,
 --          "   lsp rename",
 --       },
