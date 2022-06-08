@@ -59,15 +59,11 @@ return {
            "   lsp declaration",
         },
         ["gd"] = {
-           function()
-              vim.lsp.buf.definition()
-           end,
+          "<cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>",
            "   lsp definition",
         },
         ["gr"] = {
-           function()
-              vim.lsp.buf.references()
-           end,
+          "<cmd>lua require'telescope.builtin'.lsp_references{}<cr>",
            "   lsp references",
         },
         ["[d"] = {
