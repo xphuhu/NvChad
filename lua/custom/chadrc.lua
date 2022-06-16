@@ -33,7 +33,7 @@ M.plugins = {
    },
    options = {
       lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfigs", -- path of file containing setups of different lsps
+          setup_lspconf = "custom.plugins.lspconfigs", -- path of file containing setups of different lsps
       },
    },
 }

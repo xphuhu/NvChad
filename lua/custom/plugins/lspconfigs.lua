@@ -5,7 +5,15 @@ M.setup_lsp = function(attach, capabilities)
 
    -- lspservers with default config
 
-   local servers = { "html", "cssls","jsonls","volar","tsserver"}
+   local servers = { "html", "cssls","jsonls"}
+   local fattach = function(c,b)
+      attach(c,b)
+      -- format on save
+      vim.cmd([[
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil,1000)
+      ]])
+   end
+
    local gattach = function(c,b)
       attach(c,b)
       vim.api.nvim_buf_set_option(b, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -23,14 +31,17 @@ M.setup_lsp = function(attach, capabilities)
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
-         on_attach = attach,
+         on_attach = fattach,
          capabilities = capabilities,
          -- root_dir = vim.loop.cwd,
-         flags = {
-            debounce_text_changes = 150,
-         },
       }
    end
+
+   lspconfig.volar.setup{
+      on_attach = fattach,
+      capabilities = capabilities,
+      filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+   }
 
    lspconfig.gopls.setup {
       on_attach = gattach,
