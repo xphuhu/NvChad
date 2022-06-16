@@ -4,9 +4,10 @@ if not present then
    return
 end
 
+require("base46").load_highlight "cmp"
+
 vim.opt.completeopt = "menuone,noselect"
 
-local icons = require "plugins.configs.lspkind_icons"
 local source_mapping = {
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
@@ -30,14 +31,18 @@ end
 
 local cmp_window = require "cmp.utils.window"
 
-function cmp_window:has_scrollbar()
-   return false
+cmp_window.info_ = cmp_window.info
+cmp_window.info = function(self)
+   local info = self:info_()
+   info.scrollable = false
+   return info
 end
 
 local options = {
    window = {
       completion = {
          border = border "CmpBorder",
+         winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
       },
       documentation = {
          border = border "CmpDocBorder",
@@ -50,13 +55,13 @@ local options = {
    },
    formatting = {
       format = function(entry, vim_item)
+         local icons = require("ui.icons").lspkind
          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-
          if entry.source.name == 'cmp_tabnine' then
-			    	vim_item.kind = ''
-			    	if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-			    	  vim_item.kind = ' ' .. entry.completion_item.data.detail
-			    	end
+		 	vim_item.kind = ''
+		 	if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+		 	  vim_item.kind = ' ' .. entry.completion_item.data.detail
+		 	end
          end
          vim_item.menu = source_mapping[entry.source.name]
          return vim_item
@@ -70,7 +75,7 @@ local options = {
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm {
-         behavior = cmp.ConfirmBehavior.Replace,
+         behavior = cmp.ConfirmBehavior.Insert,
          select = true,
       },
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -100,8 +105,8 @@ local options = {
    },
    sources = {
       { name = "cmp_tabnine" },
-      { name = "nvim_lsp" },
       { name = "luasnip" },
+      { name = "nvim_lsp" },
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
