@@ -9,7 +9,7 @@ return {
     n = {
       -- save
       ["<leader>w"] = { "<cmd> w <CR>", "﬚  save file" },
-      ["<leader>q"] = { "<cmd> q <CR>", "  exit" },
+      ["<leader>q"] = { "<cmd> q! <CR>", "  exit" },
     },
   },
   packer = {
