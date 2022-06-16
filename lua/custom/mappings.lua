@@ -4,6 +4,7 @@ return {
       -- save
       ["<leader>w"] = { "<cmd> w <CR>", "﬚  save file" },
       ["<leader>q"] = { "<cmd> q! <CR>", "  exit" },
+      ["<leader>uu"] = { "", "" },
     },
   },
   packer = {

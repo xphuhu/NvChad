@@ -13,6 +13,7 @@ M.general = {
       -- go to  beginning and end
       ["<C-b>"] = { "<ESC>^i", "論 beginning of line" },
       ["<C-e>"] = { "<End>", "壟 end of line" },
+      ["<C-q>"] = { "<Esc>", "ESC" },
 
       -- navigate within insert mode
       ["<C-h>"] = { "<Left>", "  move left" },
