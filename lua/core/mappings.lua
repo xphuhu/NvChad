@@ -324,22 +324,22 @@ M.nvterm = {
    },
 }
 
-M.whichkey = {
-   n = {
-      ["<leader>wK"] = {
-         function()
-            vim.cmd "WhichKey"
-         end,
-         "   which-key all keymaps",
-      },
-      ["<leader>wk"] = {
-         function()
-            local input = vim.fn.input "WhichKey: "
-            vim.cmd("WhichKey " .. input)
-         end,
-         "   which-key query lookup",
-      },
-   },
-}
+-- M.whichkey = {
+--    n = {
+--       ["<leader>wK"] = {
+--          function()
+--             vim.cmd "WhichKey"
+--          end,
+--          "   which-key all keymaps",
+--       },
+--       ["<leader>wk"] = {
+--          function()
+--             local input = vim.fn.input "WhichKey: "
+--             vim.cmd("WhichKey " .. input)
+--          end,
+--          "   which-key query lookup",
+--       },
+--    },
+-- }
 
 return M
