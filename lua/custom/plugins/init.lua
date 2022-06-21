@@ -69,4 +69,5 @@ return {
       requires = { "mfussenegger/nvim-dap" },
   },
   ["mbbill/undotree"]={},
+  ["mg979/vim-visual-multi"]={},
 }
