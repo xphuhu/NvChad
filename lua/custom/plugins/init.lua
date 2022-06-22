@@ -23,7 +23,7 @@ return {
       end,
   },
   ["jose-elias-alvarez/null-ls.nvim"]={
-  
+      disable = true,
       after = "nvim-lspconfig",
       config = function()
           require("custom.plugins.null-ls").setup()

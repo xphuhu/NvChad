@@ -9,8 +9,8 @@ M.setup_lsp = function(attach, capabilities)
 
   local nfattach = function(c, b)
     attach(c, b)
-    c.resolved_capabilities.document_formatting = false
-    c.resolved_capabilities.document_range_formatting = false
+    c.resolved_capabilities.document_formatting = true
+    c.resolved_capabilities.document_range_formatting = true
   end
 
   local gattach = function(c, b)
