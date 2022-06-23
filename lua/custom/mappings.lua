@@ -95,7 +95,7 @@ return {
       },
       ["<leader>lr"] = {
         function()
-          require("ui.renamer").open()
+          require("nvchad.ui.renamer").open()
         end,
         "   lsp rename",
       },
