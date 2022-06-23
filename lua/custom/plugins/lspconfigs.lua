@@ -5,7 +5,7 @@ M.setup_lsp = function(attach, capabilities)
 
   -- lspservers with default config
 
-  local servers = { "html", "cssls", "jsonls", "volar", "tsserver" }
+  local servers = { "html", "cssls", "jsonls", "volar", "tsserver", "jdtls" }
 
   local nfattach = function(c, b)
     attach(c, b)

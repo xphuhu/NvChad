@@ -30,6 +30,7 @@ M.plugins = {
       ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
       ["williamboman/nvim-lsp-installer"] = pluginConfs.lspinstall,
       ["NvChad/nvterm"] = pluginConfs.nvterm,
+      ["lukas-reineke/indent-blankline.nvim"] = pluginConfs.indentblankline,
    },
    options = {
       lspconfig = {

@@ -40,4 +40,8 @@ M.nvimtree = {
   },
 }
 
+M.indentblankline = {
+      show_current_context_start = false,
+}
+
 return M
