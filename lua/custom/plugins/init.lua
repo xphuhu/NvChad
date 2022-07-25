@@ -1,4 +1,10 @@
 return {
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfigs"
+    end,
+  },
   ["hrsh7th/nvim-cmp"] = {
      config = function()
         require "custom.plugins.cmp"

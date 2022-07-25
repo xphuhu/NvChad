@@ -1,59 +1,57 @@
-local M = {}
+local lspconfig = require "lspconfig"
 
-M.setup_lsp = function(attach, capabilities)
-  local lspconfig = require "lspconfig"
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
 
   -- lspservers with default config
 
-  local servers = { "html", "cssls", "jsonls", "volar", "tsserver", "jdtls" }
+local servers = { "html", "cssls", "jsonls", "volar", "tsserver", "graphql","jdtls" }
 
-  local nfattach = function(c, b)
-    attach(c, b)
-    c.resolved_capabilities.document_formatting = true
-    c.resolved_capabilities.document_range_formatting = true
-  end
+local nfattach = function(c, b)
+  on_attach(c, b)
+  c.resolved_capabilities.document_formatting = true
+  c.resolved_capabilities.document_range_formatting = true
+end
 
-  local gattach = function(c, b)
-    attach(c, b)
-    vim.api.nvim_buf_set_option(b, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    c.resolved_capabilities.document_formatting = true
-    c.resolved_capabilities.document_range_formatting = true
-    -- format on save
-    vim.cmd([[
-        augroup GO_LSP
-          autocmd!
-          autocmd BufWritePre <buffer> lua Goimports(1000)
-          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil,1000)
-        augroup END
-      ]])
-  end
+local gattach = function(c, b)
+  on_attach(c, b)
+  vim.api.nvim_buf_set_option(b, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  c.resolved_capabilities.document_formatting = true
+  c.resolved_capabilities.document_range_formatting = true
+  -- format on save
+  vim.cmd([[
+      augroup GO_LSP
+        autocmd!
+        autocmd BufWritePre <buffer> lua Goimports(1000)
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil,1000)
+      augroup END
+    ]])
+end
 
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-      on_attach = nfattach,
-      capabilities = capabilities,
-      -- root_dir = vim.loop.cwd,
-    }
-  end
-
-  lspconfig.gopls.setup {
-    on_attach = gattach,
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = nfattach,
     capabilities = capabilities,
-    cmd = { "gopls", "serve" },
-    filetypes = { "go", "gomod" },
-    root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-    settings = {
-      gopls = {
-        gofumpt = true,
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      }
+    -- root_dir = vim.loop.cwd,
+  }
+end
+
+lspconfig.gopls.setup {
+  on_attach = gattach,
+  capabilities = capabilities,
+  cmd = { "gopls", "serve" },
+  filetypes = { "go", "gomod" },
+  root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      gofumpt = true,
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
     }
   }
-
-end
+}
 
 function Goimports(timeout_ms)
   local params = vim.lsp.util.make_range_params()
@@ -70,4 +68,3 @@ function Goimports(timeout_ms)
   end
 end
 
-return M

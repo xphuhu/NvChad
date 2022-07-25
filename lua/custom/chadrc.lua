@@ -32,11 +32,6 @@ M.plugins = {
       ["NvChad/nvterm"] = pluginConfs.nvterm,
       ["lukas-reineke/indent-blankline.nvim"] = pluginConfs.indentblankline,
    },
-   options = {
-      lspconfig = {
-          setup_lspconf = "custom.plugins.lspconfigs", -- path of file containing setups of different lsps
-      },
-   },
 }
 
 M.mappings = require "custom.mappings"
