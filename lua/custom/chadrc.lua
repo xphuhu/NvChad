@@ -5,14 +5,6 @@ local M = {}
 -- make sure you maintain the structure of `core/default_config.lua` here,
 -- example of changing theme:
 
-M.options = {
-  user = function()
-    vim.opt.relativenumber = true
-    vim.opt.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
-    vim.opt.mouse = ''
-  end,
-}
-
 M.ui = {
    theme_toggle = { "one_light","onedark"},
    theme = "one_light",
