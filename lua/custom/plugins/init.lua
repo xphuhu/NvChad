@@ -76,4 +76,6 @@ return {
   },
   ["mbbill/undotree"]={},
   ["mg979/vim-visual-multi"]={},
+
+  ["folke/which-key.nvim"] = {disable = false},
 }
