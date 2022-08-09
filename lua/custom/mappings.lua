@@ -2,8 +2,8 @@ return {
   general = {
     n = {
       -- save
-      ["<leader>w"] = { "<cmd> w <CR>", "﬚  save file" },
-      ["<leader>q"] = { "<cmd> q! <CR>", "  exit" },
+      ["<leader>w"] = { "<cmd> w <CR>", "save file" },
+      ["<leader>q"] = { "<cmd> q! <CR>", "exit" },
       ["<leader>uu"] = { "", "" },
     },
   },
@@ -23,7 +23,7 @@ return {
       ["<leader>s"] = { "", "Telescope" },
       -- find
       ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "find files" },
-      ["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
+      ["<leader>sa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
       ["<leader>sw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
       ["<leader>sb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
       ["<leader>sh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
@@ -51,39 +51,39 @@ return {
         function()
           vim.lsp.buf.declaration()
         end,
-        "   lsp declaration",
+        "lsp declaration",
       },
       ["gd"] = {
         "<cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>",
-        "   lsp definition",
+        "lsp definition",
       },
       ["gr"] = {
         "<cmd>lua require'telescope.builtin'.lsp_references{}<cr>",
-        "   lsp references",
+        "lsp references",
       },
       ["[d"] = {
         function()
           vim.diagnostic.goto_prev()
         end,
-        "   goto prev",
+        "goto prev",
       },
       ["]d"] = {
         function()
           vim.diagnostic.goto_next()
         end,
-        "   goto_next",
+        "goto_next",
       },
       ["K"] = {
         function()
           vim.lsp.buf.hover()
         end,
-        "   lsp hover",
+        "lsp hover",
       },
       ["gi"] = {
         function()
           vim.lsp.buf.implementation()
         end,
-        "   lsp implementation",
+        "lsp implementation",
       },
       ["<leader>ld"] = {
         "<cmd>lua require'telescope.builtin'.diagnostics{bufnr=0}<cr>",
@@ -97,7 +97,7 @@ return {
         function()
           require("nvchad_ui.renamer").open()
         end,
-        "   lsp rename",
+        "lsp rename",
       },
       ["<leader>lR"] = { "<cmd> LspRestart <CR>", "Restart LSP" },
       ["<leader>lc"] = {
@@ -108,7 +108,7 @@ return {
         function()
           vim.lsp.buf.formatting()
         end,
-        "   lsp formatting",
+        "lsp formatting",
       },
       ["<leader>lw"] = { "", "workspaces" },
       ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols",
@@ -117,19 +117,19 @@ return {
         function()
           vim.lsp.buf.add_workspace_folder()
         end,
-        "   add workspace folder",
+        "add workspace folder",
       },
       ["<leader>lwr"] = {
         function()
           vim.lsp.buf.remove_workspace_folder()
         end,
-        "   remove workspace folder",
+        "remove workspace folder",
       },
       ["<leader>lwl"] = {
         function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end,
-        "   list workspace folders",
+        "list workspace folders",
       },
       ["<leader>lt"] = { "", "Telescope" },
       ["<leader>ltd"] = {
@@ -157,7 +157,7 @@ return {
       ["<C-n>"] = { "", "" },
 
       -- focus
-      ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+      ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
     },
   },
 }
