@@ -177,7 +177,7 @@ M.gitblame = function()
     return
   end
 
-  vim.g.gitblame_enabled = 1
+  vim.g.gitblame_enabled = 0
   vim.g.gitblame_display_virtual_text = 1
 
 end

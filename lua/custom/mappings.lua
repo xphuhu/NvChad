@@ -5,6 +5,7 @@ return {
       ["<leader>w"] = { "<cmd> w <CR>", "save file" },
       ["<leader>q"] = { "<cmd> q! <CR>", "exit" },
       ["<leader>uu"] = { "", "" },
+      ["<leader>gl"] = { "<cmd> GitBlameToggle <CR>", "Toggle Git Blame" },
     },
   },
   packer = {
