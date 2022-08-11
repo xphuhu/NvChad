@@ -214,6 +214,11 @@ local plugins = {
 
   -- Speed up deffered plugins
   ["lewis6991/impatient.nvim"] = { module = "impatient" },
+  ["f-person/git-blame.nvim"] = {
+    config = function()
+      require("plugins.configs.others").gitblame()
+    end,
+  }
 }
 
 require("core.packer").run(plugins)

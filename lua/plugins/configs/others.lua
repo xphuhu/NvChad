@@ -170,4 +170,18 @@ M.devicons = function()
   end
 end
 
+M.gitblame = function()
+  local present, gitblame = pcall(require, "gitblame")
+
+  if not present then
+    return
+  end
+
+  vim.g.gitblame_enabled = 1
+  vim.g.gitblame_display_virtual_text = 1
+
+end
+
+
+
 return M
