@@ -5,6 +5,11 @@ return {
       ["<leader>w"] = { "<cmd> w <CR>", "save file" },
       ["<leader>q"] = { "<cmd> q! <CR>", "exit" },
       ["<leader>uu"] = { "", "" },
+    },
+  },
+  git = {
+    n = {
+      ["<leader>g"] = { "", "Git" },
       ["<leader>gl"] = { "<cmd> GitBlameToggle <CR>", "Toggle Git Blame" },
     },
   },
