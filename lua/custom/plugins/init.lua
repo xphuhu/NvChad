@@ -78,4 +78,10 @@ return {
   ["mg979/vim-visual-multi"]={},
 
   ["folke/which-key.nvim"] = {disable = false},
+  ["f-person/git-blame.nvim"] = {
+    config = function()
+      require("plugins.configs.others").gitblame()
+    end,
+  },
+
 }

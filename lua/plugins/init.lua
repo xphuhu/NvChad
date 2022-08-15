@@ -204,6 +204,7 @@ local plugins = {
   ["folke/which-key.nvim"] = {
     disable = true,
     module = "which-key",
+    keys = "<leader>",
     config = function()
       require "plugins.configs.whichkey"
     end,
@@ -213,12 +214,7 @@ local plugins = {
   },
 
   -- Speed up deffered plugins
-  ["lewis6991/impatient.nvim"] = { module = "impatient" },
-  ["f-person/git-blame.nvim"] = {
-    config = function()
-      require("plugins.configs.others").gitblame()
-    end,
-  }
+  ["lewis6991/impatient.nvim"] = {},
 }
 
 require("core.packer").run(plugins)
