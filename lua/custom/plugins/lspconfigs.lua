@@ -33,6 +33,9 @@ for _, lsp in ipairs(servers) do
     on_attach = nfattach,
     capabilities = capabilities,
     -- root_dir = vim.loop.cwd,
+    init_options = {
+      usePlaceholders = true,
+    }
   }
 end
 
@@ -44,12 +47,17 @@ lspconfig.gopls.setup {
   root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
+      experimentalPostfixCompletions = true,
       gofumpt = true,
       analyses = {
         unusedparams = true,
+        shadow = true,
       },
       staticcheck = true,
     }
+  },
+  init_options = {
+    usePlaceholders = true,
   }
 }
 
