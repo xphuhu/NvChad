@@ -13,6 +13,7 @@ local source_mapping = {
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
+	copilot = "[CT]",
 	path = "[Path]",
 }
 
@@ -104,6 +105,7 @@ local options = {
       }),
    },
    sources = {
+      { name = "copilot" },
       { name = "cmp_tabnine" },
       { name = "luasnip" },
       { name = "nvim_lsp" },

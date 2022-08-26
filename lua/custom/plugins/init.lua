@@ -5,13 +5,24 @@ return {
       require "custom.plugins.lspconfigs"
     end,
   },
+  ["goolord/alpha-nvim"] = {
+         disable = false,
+  },
   ["hrsh7th/nvim-cmp"] = {
      config = function()
         require "custom.plugins.cmp"
      end,
   },
-  ["goolord/alpha-nvim"] = {
-         disable = false,
+  ["zbirenbaum/copilot.lua"] = {
+    event = "VimEnter",
+    config = function()
+      require("copilot").setup()
+    end,
+  },
+  ["zbirenbaum/copilot-cmp"] = {
+    module = { "copilot_cmp"},
+    requires = 'hrsh7th/nvim-cmp',
+    after = "nvim-cmp", -- Here
   },
   ["tzachar/cmp-tabnine"] = {
       run = './install.sh',
