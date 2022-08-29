@@ -6,8 +6,8 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme_toggle = { "one_light","onedark"},
-   theme = "one_light",
+  theme_toggle = { "one_light", "onedark" },
+  theme = "one_light",
 }
 
 -- Install plugins
@@ -16,14 +16,14 @@ local pluginConfs = require "custom.plugins.configs" -- path to table
 
 -- NvChad included plugin options & overrides
 M.plugins = {
-   user = userPlugins,
-   override = {
-      ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
-      ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
-      ["williamboman/nvim-lsp-installer"] = pluginConfs.lspinstall,
-      ["NvChad/nvterm"] = pluginConfs.nvterm,
-      ["lukas-reineke/indent-blankline.nvim"] = pluginConfs.indentblankline,
-   },
+  user = userPlugins,
+  override = {
+    ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
+    ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
+    ["williamboman/mason.nvim"] = pluginConfs.lspinstall,
+    ["NvChad/nvterm"] = pluginConfs.nvterm,
+    ["lukas-reineke/indent-blankline.nvim"] = pluginConfs.indentblankline,
+  },
 }
 
 M.mappings = require "custom.mappings"

@@ -2,8 +2,21 @@ local M = {}
 
 M.lspinstall = {
   ensure_installed = {
-    "lua",
+    "lua-language-server",
+    "stylua",
+
+    "json-lsp",
+    "yaml-language-server",
+
+    "html-lsp",
+    "vue-language-server",
+    "prettierd",
+
+    "graphql-language-service-cli",
+
     "gopls",
+    "goimports",
+    "golangci-lint",
   },
 }
 
@@ -41,7 +54,7 @@ M.nvimtree = {
 }
 
 M.indentblankline = {
-      show_current_context_start = false,
+  show_current_context_start = false,
 }
 
 return M
