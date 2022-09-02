@@ -14,17 +14,19 @@ return {
     end,
   },
   ["zbirenbaum/copilot.lua"] = {
+    disable = true,
     event = "VimEnter",
     config = function()
       require("copilot").setup()
     end,
   },
   ["zbirenbaum/copilot-cmp"] = {
+    disable = true,
     module = { "copilot_cmp" },
     requires = "hrsh7th/nvim-cmp",
     after = "nvim-cmp", -- Here
   },
-  ["tzachar/cmp-tabnine"] = {
+  ["nzlov/cmp-tabnine"] = {
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
     after = "nvim-cmp", -- Here
@@ -40,10 +42,10 @@ return {
     end,
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    disable = true,
+    -- disable = true,
     after = "nvim-lspconfig",
     config = function()
-      require("custom.plugins.null-ls").setup()
+      require "custom.plugins.null-ls"
     end,
   },
   ["ethanholz/nvim-lastplace"] = {
@@ -92,12 +94,6 @@ return {
   ["f-person/git-blame.nvim"] = {
     config = function()
       require("plugins.configs.others").gitblame()
-    end,
-  },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
     end,
   },
 }
