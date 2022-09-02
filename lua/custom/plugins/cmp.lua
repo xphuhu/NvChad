@@ -40,6 +40,7 @@ cmp_window.info = function(self)
 end
 
 local options = {
+  preselect = cmp.PreselectMode.None,
   experimental = {
     ghost_text = true,
   },
@@ -119,7 +120,7 @@ local options = {
   sorting = {
     priority_weight = 2,
     comparators = {
-      require "cmp_tabnine.compare",
+      -- require "cmp_tabnine.compare",
       -- require("copilot_cmp.comparators").prioritize,
       -- require("copilot_cmp.comparators").score,
 
@@ -142,3 +143,19 @@ local options = {
 options = require("core.utils").load_override(options, "hrsh7th/nvim-cmp")
 
 cmp.setup(options)
+
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "buffer" },
+  },
+})
+
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    { name = "cmdline" },
+  }),
+})
