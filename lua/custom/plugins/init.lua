@@ -26,7 +26,7 @@ return {
     requires = "hrsh7th/nvim-cmp",
     after = "nvim-cmp", -- Here
   },
-  ["nzlov/cmp-tabnine"] = {
+  ["tzachar/cmp-tabnine"] = {
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
     after = "nvim-cmp", -- Here
@@ -38,6 +38,7 @@ return {
         sort = true,
         run_on_every_keystroke = true,
         snippet_placeholder = "..",
+        show_prediction_strength = true,
       }
     end,
   },
