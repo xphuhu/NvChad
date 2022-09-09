@@ -10,21 +10,8 @@ M.ui = {
   theme = "one_light",
 }
 
--- Install plugins
-local userPlugins = require "custom.plugins" -- path to table
-local pluginConfs = require "custom.plugins.configs" -- path to table
-
 -- NvChad included plugin options & overrides
-M.plugins = {
-  user = userPlugins,
-  override = {
-    ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
-    ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
-    ["williamboman/mason.nvim"] = pluginConfs.lspinstall,
-    ["NvChad/nvterm"] = pluginConfs.nvterm,
-    ["lukas-reineke/indent-blankline.nvim"] = pluginConfs.indentblankline,
-  },
-}
+M.plugins = require "custom.plugins.init"
 
 M.mappings = require "custom.mappings"
 

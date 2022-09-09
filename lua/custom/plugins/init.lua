@@ -1,4 +1,66 @@
 return {
+  ["williamboman/mason.nvim"] = {
+    override_options = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+
+        "json-lsp",
+        "yaml-language-server",
+
+        "html-lsp",
+        "vue-language-server",
+        "prettierd",
+
+        "graphql-language-service-cli",
+
+        "gopls",
+        "goimports",
+        "golangci-lint",
+      },
+    },
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = {
+      ensure_installed = {
+        "lua",
+        "html",
+        "css",
+        "go",
+        "gomod",
+        "gowork",
+        "json",
+        "graphql",
+        "yaml",
+      },
+    },
+  },
+  ["NvChad/nvterm"] = {
+    override_options = {
+      terminals = {
+        type_opts = {
+          float = {
+            row = 0.1,
+            col = 0.1,
+            width = 0.8,
+            height = 0.8,
+          },
+        },
+      },
+    },
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = {
+      git = {
+        enable = true,
+      },
+    },
+  },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    override_options = {
+      show_current_context_start = false,
+    },
+  },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -94,7 +156,7 @@ return {
   ["folke/which-key.nvim"] = { disable = false },
   ["f-person/git-blame.nvim"] = {
     config = function()
-      require("plugins.configs.others").gitblame()
+      require "custom.plugins.gitblame"
     end,
   },
 }
