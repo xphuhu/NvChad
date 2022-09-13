@@ -100,7 +100,7 @@ M.load_mappings = function(section, mapping_opt)
 end
 
 -- merge default/user plugin tables
-M.merge_plugins = function(default_plugins)
+M.merge_plugins = function(plugins)
   local plugin_configs = M.load_config().plugins
   local user_plugins = plugin_configs
 
@@ -113,18 +113,19 @@ M.merge_plugins = function(default_plugins)
   local remove_plugins = plugin_configs.remove
   if type(remove_plugins) == "table" then
     for _, v in ipairs(remove_plugins) do
-      default_plugins[v] = nil
+      plugins[v] = nil
     end
   end
 
-  default_plugins = merge_tb("force", default_plugins, user_plugins)
+  plugins = merge_tb("force", plugins, user_plugins)
 
   local final_table = {}
 
-  for key, val in pairs(default_plugins) do
+  for key, val in pairs(plugins) do
     if val and type(val) == "table" then
-      default_plugins[key][1] = key
-      final_table[#final_table + 1] = default_plugins[key]
+      plugins[key] = val.rm_default_opts and user_plugins[key] or plugins[key]
+      plugins[key][1] = key
+      final_table[#final_table + 1] = plugins[key]
     end
   end
 
@@ -136,7 +137,7 @@ M.load_override = function(options_table, name)
   local plugin_configs, plugin_options = M.load_config().plugins, nil
 
   -- support old plugin syntax for override
-  local user_override = plugin_configs.user and plugin_configs.user.override and plugin_configs.user.override[name]
+  local user_override = plugin_configs.override and plugin_configs.override[name]
   if user_override and type(user_override) == "table" then
     plugin_options = user_override
   end
@@ -193,7 +194,7 @@ M.packer_sync = function(...)
     local plugins = M.load_config().plugins
     local old_style_options = plugins.user or plugins.override or plugins.remove
     if old_style_options then
-      vim.notify_once({ "NvChad: This plugin syntax is deprecated, use new style config." }, "Error")
+      vim.notify_once("NvChad: This plugin syntax is deprecated, use new style config.", "Error")
     end
   else
     error "Packer could not be loaded!"
