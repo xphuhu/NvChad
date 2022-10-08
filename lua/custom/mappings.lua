@@ -45,7 +45,6 @@ return {
       ["<leader>stm"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
       -- theme ssitcher
       ["<leader>sth"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-
     },
   },
   lspconfig = {
@@ -117,8 +116,7 @@ return {
         "lsp formatting",
       },
       ["<leader>lw"] = { "", "workspaces" },
-      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols",
-      },
+      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols" },
       ["<leader>lwa"] = {
         function()
           vim.lsp.buf.add_workspace_folder()
