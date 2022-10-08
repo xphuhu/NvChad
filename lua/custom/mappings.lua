@@ -116,7 +116,8 @@ return {
         "lsp formatting",
       },
       ["<leader>lw"] = { "", "workspaces" },
-      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols" },
+      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols",
+      },
       ["<leader>lwa"] = {
         function()
           vim.lsp.buf.add_workspace_folder()
