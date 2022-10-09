@@ -7,12 +7,6 @@ return {
       ["<leader>uu"] = { "", "" },
     },
   },
-  git = {
-    n = {
-      ["<leader>g"] = { "", "Git" },
-      ["<leader>gl"] = { "<cmd> GitBlameToggle <CR>", "Toggle Git Blame" },
-    },
-  },
   packer = {
     n = {
       ["<leader>p"] = { "", "Packer" },
@@ -116,8 +110,7 @@ return {
         "lsp formatting",
       },
       ["<leader>lw"] = { "", "workspaces" },
-      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols",
-      },
+      ["<leader>lws"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Workspace Symbols" },
       ["<leader>lwa"] = {
         function()
           vim.lsp.buf.add_workspace_folder()
