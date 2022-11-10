@@ -158,4 +158,14 @@ return {
       ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
     },
   },
+  gitsigns = {
+    n = {
+      ["<leader>gb"] = {
+        function()
+          require("gitsigns").toggle_current_line_blame()
+        end,
+        "Blame line",
+      },
+    },
+  },
 }
